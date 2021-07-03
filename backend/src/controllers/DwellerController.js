@@ -28,7 +28,7 @@ module.exports = {
         const dweller = await connection('dwellers').select('*')
         const dweller_space = await connection('dweller_space').select('*')
 
-        return res.json({dweller, dweller_space})
+        return res.json(dweller)
     },
 
     async delete (req, res) {

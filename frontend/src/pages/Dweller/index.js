@@ -49,6 +49,7 @@ export default function Dweller () {
             building,
             ap,
             whatsapp,
+            allowed_spaces: scheduleItems,
         }
 
         try{
@@ -73,7 +74,7 @@ export default function Dweller () {
             alert('Erro no cadastro! Tente novamente.')
         }
     }
-    
+        
     return (
         <div id="page-teacher-form" className="container">
             <header className="page-header">
@@ -157,26 +158,27 @@ export default function Dweller () {
                             return(
                                 <div key={scheduleItem.space} className="select-block">
                                     <select
-                                        name="week-day"
-                                        label="Dia da semana"
+                                        name="space"
+                                        label="space"
                                         value={scheduleItem.space}
                                         onChange={e => setScheduleItemValue(position, 'space', e.target.value)}>
                                             <option key='0' value='0'>Piscina</option>
                                             <option key='1' value='1'>Andar 1</option>
-                                            <option key='2' value='2'>Andar 5</option>
-                                            <option key='3' value='3'>Andar 7</option>
+                                            <option key='2' value='2'>Andar 2</option>
+                                            <option key='3' value='3'>Andar 3</option>
                                             <option key='4' value='4'>Hall das Docas</option>
                                             <option key='5' value='5'>Portaria 1</option>
                                             <option key='6' value='6'>Portaria 2</option>
                                             <option key='7' value='7'>Academia</option>
+                                            <option key='8' value='8'>Estacionamento 1</option>
+                                            <option key='9' value='9'>Estacionamento 2</option>
                                     </select>
-
                                     
                                 </div>
                             )
                         })}
                     </fieldset>
-
+                    
                     <footer>
                         <p>
                             <img src={warningIcon} alt="Aviso importante"></img>
