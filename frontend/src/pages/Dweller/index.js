@@ -17,27 +17,27 @@ export default function Dweller () {
     const [building, setBuilding] = useState('')
     const [ap, setAp] = useState('')
     
-    const [scheduleItems, setScheduleItems] = useState([
+    const [spaceItems, setSpaceItems] = useState([
         { space: 0}
     ])
     
-    function addNewScheduleItem() {
-        setScheduleItems([
-            ...scheduleItems,
+    function addNewSpaceItem() {
+        setSpaceItems([
+            ...spaceItems,
             { space: 0}
         ])
     }
 
-    function setScheduleItemValue(position, field, value){
-        const updatedScheduleItems = scheduleItems.map((scheduleItem, index) => {
+    function setSpaceItemValue(position, field, value){
+        const updatedSpaceItems = spaceItems.map((spaceItem, index) => {
             if(index === position){
-                return { ...scheduleItem, [field]:value }
+                return { ...spaceItem, [field]:value }
             }
 
-            return scheduleItem
+            return spaceItem
         })
 
-        setScheduleItems(updatedScheduleItems)
+        setSpaceItems(updatedSpaceItems)
     }
 
 
@@ -49,7 +49,7 @@ export default function Dweller () {
             building,
             ap,
             whatsapp,
-            allowed_spaces: scheduleItems,
+            allowed_spaces: spaceItems,
         }
 
         try{
@@ -62,10 +62,18 @@ export default function Dweller () {
             else{
                 const response = await api.post('dweller', datas)
 
-                const id_dweller = response.data
+                /*const id_dweller = response.data
                 localStorage.setItem('dweller_id', id_dweller)
-    
-                alert(`ID_Condômino: ${id_dweller}. Dando prosseguimento ao cadastro...`)
+                localStorage.setItem('name', datas.name)
+                localStorage.setItem('building', datas.building)
+                localStorage.setItem('ap', datas.ap)
+                localStorage.setItem('whatsapp', datas.whatsapp)
+
+                spaceItems.map(item => {
+                    localStorage.setItem('allowed_spaces', item)
+                })*/
+                    
+                alert(`Dando prosseguimento ao cadastro de ${datas.name}...`)
                 
                 history.push('/posts')
             }
@@ -149,19 +157,19 @@ export default function Dweller () {
                     <fieldset>
                         <legend>
                             Ambientes Permitidos
-                            <button type='button' onClick={addNewScheduleItem}>
+                            <button type='button' onClick={addNewSpaceItem}>
                                 + Nova permissão
                             </button>
                         </legend>
 
-                        {scheduleItems.map((scheduleItem, position) => {
+                        {spaceItems.map((spaceItem, position) => {
                             return(
-                                <div key={scheduleItem.space} className="select-block">
+                                <div key={spaceItem.space} className="select-block">
                                     <select
                                         name="space"
                                         label="space"
-                                        value={scheduleItem.space}
-                                        onChange={e => setScheduleItemValue(position, 'space', e.target.value)}>
+                                        value={spaceItem.space}
+                                        onChange={e => setSpaceItemValue(position, 'space', e.target.value)}>
                                             <option key='0' value='0'>Piscina</option>
                                             <option key='1' value='1'>Andar 1</option>
                                             <option key='2' value='2'>Andar 2</option>

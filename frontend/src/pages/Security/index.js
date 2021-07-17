@@ -51,8 +51,7 @@ export default function Space () {
                 </div>
 
                 <div className="header-content">
-                    <strong>Cadastro de Ambientes do Condomínio</strong>
-                    Preencha o formulário abaixo
+                    <strong>Administração e Segurança do Condomínio</strong>
                 </div>            
             </header>
 

@@ -65,11 +65,11 @@
     background: var(--color-primary-lighter);
 }
 
-.buttons-container a.security {
+.buttons-container a.maintenance {
     background: var(--color-secundary);
 }
 
-.buttons-container a.space {
+.buttons-container a.security {
     background: var(--color-third);
 }
 
@@ -77,11 +77,11 @@
     background: var(--color-primary-light);
 }
 
-.buttons-container a.security:hover {
+.buttons-container a.maintenance:hover {
     background: var(--color-secundary-dark);
 }
 
-.buttons-container a.space:hover {
+.buttons-container a.security:hover {
     background: var(--color-third-dark);
 }
 
